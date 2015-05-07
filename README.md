@@ -19,7 +19,7 @@ The environment variables can be accessed using Node, you can run following comm
 
 Here is what program does on server-side and client-side
 
-1. **Server**
+**Server**
 	1. Retrives data from Twitter's streaming API:
 		* Uses API keys to fetch tweets from twitter.
 		* Stay tuned for more data(tweets) to become available for application.
@@ -37,7 +37,7 @@ Here is what program does on server-side and client-side
 		* Calculates the percentages for love and hate counts.
 		* Keep the total as actual count.
 		* Sends the above calculated three metrics to the client.
-2. **Client**
+**Client**
 	1. Establishes the socket.io connection with the server.
 	2. Receive the tweets from the server.
 	4. Receives updates from the server on the summary statistics about the love-hate sentiments on Twitter.
@@ -47,4 +47,5 @@ Here is what program does on server-side and client-side
 ### How to run
 Navigate to directory containing above code. Start the server using following command:
 >  node app.js
+
 In web browser, enter following URL to execute [localhost:3000/twitter_sentiment](http://localhost:3000/twitter_sentiment)
