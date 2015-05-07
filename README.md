@@ -16,7 +16,7 @@
 
 
 * Here is what program does on server-side and client-side
-	1. ###Server
+	1. **Server**
 		1. Retrives data from Twitter's streaming API:
 			* Uses API keys to fetch tweets from twitter.
 			* Stay tuned for more data(tweets) to become available for application.
@@ -34,7 +34,7 @@
 			* Calculates the percentages for love and hate counts.
 			* Keep the total as actual count.
 			* Sends the above calculated three metrics to the client.
-	2. ###Client
+	2. **Client**
 		1. Establishes the socket.io connection with the server.
 		2. Receive the tweets from the server.
 		4. Receives updates from the server on the summary statistics about the love-hate sentiments on Twitter.
