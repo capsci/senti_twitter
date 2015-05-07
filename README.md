@@ -49,6 +49,8 @@ Here is what program does on server-side and client-side
 
 ### How to run
 Navigate to directory containing above code. Start the server using following command:
->  node app.js
+```
+	node app.js
+```
 
 In web browser, enter following URL to execute [localhost:3000/twitter_sentiment](http://localhost:3000/twitter_sentiment)
