@@ -18,6 +18,7 @@ The environment variables can be accessed using Node, you can run following comm
 ```
 
 Here is what program does on server-side and client-side
+
 1. **Server**
 	1. Retrives data from Twitter's streaming API:
 		* Uses API keys to fetch tweets from twitter.
