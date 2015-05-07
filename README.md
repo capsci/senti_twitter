@@ -8,12 +8,12 @@
 	export TWITTER_CONSUMER_SECRET = your_secret_from_twitter
 	export TWITTER_ACCESS_TOKEN = your_access_token_from_twitter
 	export TWITTER_ACCESS_SECRET = your_access_secret_from_twitter
-
+```
 The environment variables can be accessed using Node, you can run following command to test: 
 ```
 	node -e "console.log(process.env.TWITTER_CONSUMER_KEY)"
 	node -e "console.log(process.env.TWITTER_CONSUMER_SECRET)"
-
+```
 
 Here is what program does on server-side and client-side
 1. **Server**
