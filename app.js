@@ -71,7 +71,7 @@ console.log("twitter-sentiment-analyzer listening on http://127.0.0.1:" + port +
 function connect_twitter(){
   //connect to twitter
   console.log('Connecting to twitter with given credentials')
-  twitter = require('ntwitter');
+  twitter = require('twitter');
   //fill keys obtained from https://apps.twitter.com/app
 	/*** Enter the twitter credentials ***/
   twit = new twitter({
@@ -80,15 +80,6 @@ function connect_twitter(){
     access_token_key: process.env.TWITTER_ACCESS_TOKEN,
     access_token_secret: process.env.TWITTER_ACCESS_SECRET
   });
-  twit
-    .verifyCredentials(function (err, data) {
-//    console.log(data);
-    })
-    .updateStatus('Test tweet from ntwitter/' + twitter.VERSION,
-      function (err, data) {
-//        console.log(data);
-      }
-   );
 }
 
 function analyze_senti(socket) {
@@ -96,8 +87,13 @@ function analyze_senti(socket) {
   var love_count = 0;
   var hate_count = 0;
   twit.stream('statuses/filter',{track:['love','hate']}, function(stream) {
+    console.log("Got stream")
+    stream.on('error', function(err) {
+      console.log(err);
+      process.exit(1)
+    });
     stream.on('data', function (data) {
-     // console.log(data.user.screen_name);
+      console.log(data.user.screen_name);
       if (data.text.indexOf('love') > -1)
       {
         love_count += 1;
@@ -131,7 +127,7 @@ sio.on('connection',function(socket) {
   console.log('Web client connected');
   socket.emit('ss-confirmation',{text: 'Success'});
   connect_twitter();
-  analyze_senti(socket);
+//  analyze_senti(socket);
   socket.on('disconnect',function() {
     console.log('Web client disconnected');
     console.log('**********************');
