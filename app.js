@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -12,7 +12,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -123,9 +123,11 @@ function analyze_senti(socket) {
   });
 }
 
+
+
 //create a socket
-var sio = require('socket.io').listen(server);
-sio.sockets.on('connection',function(socket) {
+var sio = require('socket.io')(server);
+sio.on('connection',function(socket) {
   console.log('Web client connected');
   socket.emit('ss-confirmation',{text: 'Success'});
   connect_twitter();
